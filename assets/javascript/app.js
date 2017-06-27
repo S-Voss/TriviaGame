@@ -3,7 +3,7 @@ window.onload = function() {
 };
 
 //Keep the timer from speeding up
-var gameRunning = false;
+var timerRunning = false;
 
 //The Game set up as an Object
 var game = {
@@ -22,14 +22,15 @@ var game = {
 
   start: function () {
     //Use setInterval to time each question and only ask 15 questions per game
-    if (!gameRunning && game.question <= 15) {
-      //Create a variable that stores the time for each question (30 seconds each)
-      var questionInterval = setInterval(game.triviaQuestion, 1000)
-      //Set the gameRunning variable to true
-      gameRunning = true;
+    if (!timerRunning && game.question <= 15) {
       //Run the game's logic function ask the question and wait for a user's guess
       game.triviaQuestion();
+      //Create a variable that stores the time for each question (30 seconds each)
+      //var questionInterval = setTimeout(game.triviaQuestion, 5 * 1000);
+      //Set the timerRunning variable to true
+      timerRunning = true;
     } else {
+      console.log("nope");
       //game.summary();
     };
   },
@@ -39,8 +40,7 @@ var game = {
     //Increase the timer when the game starts running by 1
     game.timer++;
     //Take the current time and pass that into the timeConverter function so it displays correctly. Save that result into a variable.
-    var converted = game.timeConverter(game.timer
-    );
+    var converted = game.timeConverter(game.timer);
     console.log(converted);
     //Display the converted time from the timeConverter function for the user
     $("#question-timer").html(converted);
@@ -70,8 +70,13 @@ var game = {
 
   //Function for each question's logic
   triviaQuestion: function() {
-    //Run the count function to track the time for each question-timer
-    game.count();
+    //Create a variable that stores the time for each question (30 seconds each)
+    var questionInterval = setInterval(game.count, 1000);
+    setTimeout(function() {
+      clearInterval(questionInterval);
+      timerRunning = false;
+    }, 5000);
+
     //Set the question to be asked and corresponding answer choices
     //questionInterval
     console.log(game.timer);
