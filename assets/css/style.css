@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+}
+
+h3, h5, h6 {
+  text-align: center;
+}
+
+.question-asked {
+  background-color: blue;
+}
+
+.option-one, .option-two, .option-three, .option-four {
+  margin: 2.5px;
+  background-color: red;
+}
