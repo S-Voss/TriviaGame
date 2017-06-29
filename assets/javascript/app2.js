@@ -9,16 +9,16 @@ var timerRunning = false;
 //The Game set up as an Object
 var game = {
 
-  timer: 30,
+  timer: 0,
   question: 1,
 
   reset: function () {
     //reset the timer and question variables
-    game.timer = 30;
+    game.timer = 0;
     game.question = 1;
 
     //Change the display to reload to the beginning
-    $("#question-timer").html("00:30");
+    $("#question-timer").html("00:00");
 
   },
 
@@ -55,7 +55,7 @@ var game = {
   //Function that stores and displays the count for each question
   count: function () {
     //Increase the timer when the game starts running by 1
-    game.timer--;
+    game.timer++;
 
     //Take the current time and pass that into the timeConverter function
     //so it displays correctly. Save that result into a variable.
