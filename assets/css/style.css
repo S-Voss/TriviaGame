@@ -1,13 +1,24 @@
 .title {
   text-align: center;
+  margin: 100px 0px 50px 0px;
+}
+
+#start-button {
+  margin: 0px 8px 0px 8px;
 }
 
 h3, h5, h6 {
   text-align: center;
 }
 
+.question-timer h3 {
+  font-size: 75px;
+  margin-bottom: 100px;
+}
+
 .question-asked {
   background-color: blue;
+  margin-bottom: 25px;
 }
 
 .option-one, .option-two, .option-three, .option-four {
